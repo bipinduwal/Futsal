@@ -14,6 +14,24 @@ const hideshowsidebar = () => {
 }
 menu.addEventListener("click", hideshowsidebar)
 // 
+
+// todays date
+function timer(){
+    let today  = new Date()
+    let time_string = today.toLocaleTimeString()
+    document.getElementById('timer').innerHTML = time_string
+}
+setInterval(timer, [1000])
+let today = new Date();
+
+let year = today.getFullYear();
+let month = today.toLocaleString('default', { month: 'long' });
+let day = today.toLocaleString('default', { weekday: 'long' });
+
+let dateString = `${day}, ${month} ${year}`;
+document.getElementById('day').innerHTML = dateString;
+
+// 
 // fetching from local storega
 // Retrieve and parse the bookings data from localStorage
 let data = JSON.parse(localStorage.getItem("bookings"));
@@ -63,3 +81,12 @@ unit_data.forEach(booking => {
         window.location.href = "home_team.html"
     })
 //
+
+// dropdown setting
+document.getElementById('settings-button').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    const dropdown = document.getElementById('settings-dropdown');
+    dropdown.classList.toggle('hidden'); // Toggle the hidden class to show/hide the dropdown
+});
+
+// 

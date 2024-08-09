@@ -42,12 +42,20 @@
                             <span class="ml-2">Manage Users</span>
                         </a>
                     </li>
-                    <li class="mb-2" data-aos="fade-right" data-aos-delay="900" data-aos-duration="200">
-                        <a href="setting.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                    <li class="mb-2 relative" data-aos="fade-right" data-aos-delay="900" data-aos-duration="200">
+                        <a href="#" id="settings-button" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
                             <i class="fas fa-cogs"></i>
                             <span class="ml-2">Settings</span>
+                            <i class="fas fa-chevron-down ml-auto"></i> <!-- Dropdown icon -->
                         </a>
+                        
+                        <!-- Dropdown Menu -->
+                        <ul id="settings-dropdown" class="absolute left-0 w-full mt-2 bg-blue-800 text-white rounded-md shadow-lg hidden">
+                            <li class="px-4 py-2 hover:bg-blue-600"><a href="change_password.html">Change Password</a></li>
+                            <li class="px-4 py-2 hover:bg-blue-600"><a href="additional_settings.html">Additional Settings</a></li>
+                        </ul>
                     </li>
+                    
                 </ul>
             </nav>
             <div class="p-4"> 
@@ -65,10 +73,17 @@
 
         <!-- Main Content -->
         <div class="flex-1 p-6 bg-[url('../img/futsalbg.webp')] bg-cover bg-no-repeat opacity-70">
-            <header class="mb-6 flex items-center">
-                <i class="fas fa-bars fa-2x pr-5 text-white" id="menu"></i>
-                <h2 class="text-3xl font-semibold text-white">Dashboard</h2>
+            <header class="mb-6 flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-bars fa-2x pr-5 text-white" id="menu"></i>
+                    <h2 class="text-3xl font-semibold text-white">Dashboard</h2>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-semibold text-lime-950-900" id="day"></h3>
+                    <h3 class="text-3xl font-semibold text-orange-100" id="timer"></h3>
+                </div>
             </header>
+            
             <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                 <!-- Today's Bookings Card -->
                 <div class="bg-[rgba(255,255,255,0.68)] p-4 shadow rounded-lg text-center" data-aos="zoom-in-right" data-aos-delay="100" data-aos-duration="1000" >

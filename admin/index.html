@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futsal Booking Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="animation.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <!-- Sidebar -->
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-blue-800 text-white flex flex-col" id="sidebar">
+            <div class="p-4">
+                <h1 class="text-2xl font-bold">Admin Panel</h1>
+            </div>
+            <nav class="flex-1 px-4">
+                <ul>
+                    <li class="mb-2" data-aos="fade-right" data-aos-delay="100" data-aos-duration="200">
+                        <a href="index.html" class="flex items-center p-2 bg-blue-700 rounded-md">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span class="ml-2">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mb-2" data-aos="fade-right" data-aos-delay="300" data-aos-duration="200">
+                        <a href="todays_booking.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                            <i class="fas fa-calendar-day"></i>
+                            <span class="ml-2">Today's Bookings</span>
+                        </a>
+                    </li>
+                    <li class="mb-2" data-aos="fade-right" data-aos-delay="500" data-aos-duration="200">
+                        <a href="view_booking.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                            <i class="fas fa-calendar-week"></i>
+                            <span class="ml-2">View All Bookings (7 days)</span>
+                        </a>
+                    </li>
+                    <li class="mb-2" data-aos="fade-right" data-aos-delay="700" data-aos-duration="200">
+                        <a href="home_team.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                            <i class="fas fa-users"></i>
+                            <span class="ml-2">Manage Users</span>
+                        </a>
+                    </li>
+                    <li class="mb-2" data-aos="fade-right" data-aos-delay="900" data-aos-duration="200">
+                        <a href="setting.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                            <i class="fas fa-cogs"></i>
+                            <span class="ml-2">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="p-4"> 
+                <img src="../img/logo.png" alt="" data-aos="zoom-in" data-aos-delay="1100" data-aos-duration="500">
+            </div>
+            <div class="p-4 ">
+                <a href="#" class="block text-center py-2 bg-red-500 hover:bg-red-600 rounded-md logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+            
+            
+        </aside>
+        
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6 bg-[url('../img/futsalbg.webp')] bg-cover bg-no-repeat opacity-70">
+            <header class="mb-6 flex items-center">
+                <i class="fas fa-bars fa-2x pr-5 text-white" id="menu"></i>
+                <h2 class="text-3xl font-semibold text-white">Dashboard</h2>
+            </header>
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <!-- Today's Bookings Card -->
+                <div class="bg-[rgba(255,255,255,0.68)] p-4 shadow rounded-lg text-center" data-aos="zoom-in-right" data-aos-delay="100" data-aos-duration="1000" >
+                    <i class="fas fa-calendar-day fa-3x text-blue-700 mb-9"></i>
+                    <h3 class="text-xl font-bold mb-2">Today's Bookings</h3>
+                    <p class="text-2xl font-semibold text-blue-600" id="total_booking"></p>
+                </div>
+
+                <!-- Upcoming 7 Days Bookings Card -->
+                <div class="bg-[rgba(255,255,255,0.68)] p-4 shadow rounded-lg text-center" 
+                data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1000" >
+                    <i class="fas fa-calendar-week fa-3x text-blue-700 mb-9"></i>
+                    <h3 class="text-xl font-bold mb-2">Next 7 Days</h3>
+                    <p class="text-2xl font-semibold text-blue-600">45</p>
+                </div>
+
+                <!-- Total Futsals Card -->
+                <div class="bg-[rgba(255,255,255,0.68)] p-4 shadow rounded-lg text-center" 
+                data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1000" id="home_team">
+                    <i class="fas fa-users fa-3x text-blue-700 mb-9"></i>
+                    <h3 class="text-xl font-bold mb-2">Home Team</h3>
+                    <p class="text-2xl font-semibold text-blue-600" id="total_home_team">6</p>
+                </div>
+
+                <!-- Revenue Card -->  
+                <div class="bg-[rgba(255,255,255,0.68)] p-4 shadow rounded-lg text-center" 
+                data-aos="zoom-in-left" data-aos-delay="100" data-aos-duration="1000" >
+                    <i class="fas fa-cogs fa-3x text-blue-700 mb-9"></i>
+                    <h3 class="text-xl font-bold mb-2">Total Revenue</h3>
+                    <p class="text-2xl font-semibold text-green-600">$4,200</p>
+                </div>
+            </section>
+
+            <!-- Booking Table -->
+            <section class="bg-[rgba(255,255,255,0.68)] p-6 shadow rounded-lg" 
+            data-aos="zoom-in-up" data-aos-delay="100" data-aos-duration="1000" >
+                <h3 class="text-xl font-semibold mb-4">Recent Bookings</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">Booking ID</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">Customer</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">DateTime</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">PlayDate</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">PlayTime</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">Payment</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr class="hover:bg-gray-100">
+                                <td class="py-2 px-4">#1234</td>
+                                <td class="py-2 px-4">John Doe</td>
+                                <td class="py-2 px-4">time date</td>
+                                <td class="py-2 px-4">08/09/2024</td>
+                                <td class="py-2 px-4">3:00 PM</td>
+                                <td class="py-2 px-4 text-green-600">Done</td>
+                                <td class="py-2 px-4 text-green-600">Confirmed</td>
+                            </tr> -->
+                           
+                            <!-- More rows can be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

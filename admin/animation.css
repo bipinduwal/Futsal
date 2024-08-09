@@ -1,0 +1,22 @@
+@keyframes slide-left {
+    0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+}
+.logout-btn {
+  animation-name: slide-left;
+  animation-timing-function: ease;
+  animation-delay: 1s;
+  animation-duration: 1s;
+}
+
+.box{
+  transition: all 1s ease;
+}
+.box:hover{
+  transform: translateY(-5%);
+  box-shadow: 0 0 10px rgb(113, 113, 183);
+}

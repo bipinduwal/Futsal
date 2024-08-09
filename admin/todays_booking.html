@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futsal Booking Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <!-- Sidebar -->
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-blue-800 text-white flex flex-col" id="sidebar">
+            <div class="p-4">
+                <h1 class="text-2xl font-bold">Admin Panel</h1>
+            </div>
+            <nav class="flex-1 px-4">
+                <ul>
+                    <li class="mb-2">
+                        <a href="index.html" class="flex items-center p-2 bg-blue-700 rounded-md">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span class="ml-2">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="todays_booking.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                            <i class="fas fa-calendar-day"></i>
+                            <span class="ml-2">Today's Bookings</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="view_booking.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                            <i class="fas fa-calendar-week"></i>
+                            <span class="ml-2">View All Bookings (7 days)</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="home_team.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                            <i class="fas fa-users"></i>
+                            <span class="ml-2">Manage Users</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="setting.html" class="flex items-center p-2 hover:bg-blue-700 rounded-md">
+                            <i class="fas fa-cogs"></i>
+                            <span class="ml-2">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="p-4"> 
+                <img src="../img/logo.png" alt="">
+            </div>
+            <div class="p-4">
+                <a href="#" class="block text-center py-2 bg-red-500 hover:bg-red-600 rounded-md">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </aside>
+        
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <header class="mb-6 flex items-center">
+                <i class="fas fa-bars fa-2x pr-5" id="menu"></i>
+                <h2 class="text-3xl font-semibold text-gray-800">Today</h2>
+            </header>
+           
+
+            <!-- Booking Table -->
+            <section class="bg-white p-6 shadow rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Todays Bookings</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">Booking ID</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">Customer</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">DateTime</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">PlayDate</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">PlayTime</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">Payment</th>
+                                <th class="py-2 px-4 bg-gray-200 font-semibold">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-100">
+                                <td class="py-2 px-4">#1234</td>
+                                <td class="py-2 px-4">John Doe</td>
+                                <td class="py-2 px-4">time date</td>
+                                <td class="py-2 px-4">08/09/2024</td>
+                                <td class="py-2 px-4">3:00 PM</td>
+                                <td class="py-2 px-4 text-green-600">Done</td>
+                                <td class="py-2 px-4 text-green-600">Confirmed</td>
+                            </tr>
+                            <tr class="hover:bg-gray-100">
+                                <td class="py-2 px-4">#1235</td>
+                                <td class="py-2 px-4">Jane Smith</td>
+                                <td class="py-2 px-4">time date</td>
+                                <td class="py-2 px-4">08/09/2024</td>
+                                <td class="py-2 px-4">5:00 PM</td>
+                                <td class="py-2 px-4 text-yellow-600">50%</td>
+                                <td class="py-2 px-4 text-yellow-600">Pending</td>
+                            </tr>
+                            <!-- More rows can be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>
